@@ -1,0 +1,44 @@
+version: '3'
+services:
+  eureka-server:
+    image: "eureka-server"
+    ports:
+      - "8761:8761"
+    networks:
+      - my-network
+  zuul-gateway:
+    image: "gateway"
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+    ports:
+      - "8084:8084"
+    networks:
+      - my-network
+    links:
+      - eureka-server:eureka-server
+    depends_on:
+      - eureka-server
+  catalog-data:
+    image: "catalog-data"
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+    ports:
+      - "8100"
+    networks:
+      - my-network
+    depends_on:
+      - eureka-server
+  item-catalog:
+    image: "item-catalog"
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+    ports:
+      - "8000"
+    networks:
+      - my-network
+    depends_on:
+      - eureka-server
+
+networks:
+    my-network:
+        driver: bridge

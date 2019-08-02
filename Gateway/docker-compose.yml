@@ -1,0 +1,15 @@
+version: '3'
+services:
+  zuul-gateway:
+    build:
+      context: "."
+      dockerfile: "D:/study/workspace_microservice/Gateway/Dockerfile"
+    image: "zuul-gateway"
+    ports:
+      - "8084:8084"
+    networks:
+      - my-network
+
+networks:
+    my-network:
+        driver: bridge
