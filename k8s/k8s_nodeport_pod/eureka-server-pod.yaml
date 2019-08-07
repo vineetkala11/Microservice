@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: eureka-server-pod
+  labels:
+    micro: eureka-server
+spec:
+  containers:
+    - name: eureka-server
+      image: vineetkala11/edureka-server
+      ports:
+        - containerPort: 8761 

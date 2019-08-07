@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-server-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050  //port property is the port, that the another POD or container inside our application could access in order to access eureka-server container 
+      targetPort: 8761 // is the inside the POD, that we want to open up traffic to, we can say that we want to send any incoming traffic into 8761 inside this POD
+      nodePort: 31515 // this is the port we use to access our application from browser. NodePort alway going to b/w 30000-32767.
+  selector:
+    micro: server

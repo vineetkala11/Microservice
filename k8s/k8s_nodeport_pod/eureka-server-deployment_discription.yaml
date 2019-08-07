@@ -1,0 +1,19 @@
+apiVersion: app/v1
+kind: Deployement //Object type to create
+metadata:
+  name: eureka-server-deployment //Name of the POD (object)
+spec:
+  replicas: 1 // Number of different Pods this deployment take place
+  selector:
+  matchLabels:
+    micro: eureka-server
+  template: // template section listed down the configuration going to be used for every single Pod that is created by this deployment 
+    metadata:
+      labels:
+        micro: eureka-server
+    spec:
+      container:
+        - name: eureka-server // name of the container, this property use for networking b/w different container that was running in the single pod
+          image: vineetkala11/edureka-server
+          ports:
+            port: 8761 // on this container we want to expose port 8761 to the outside world    

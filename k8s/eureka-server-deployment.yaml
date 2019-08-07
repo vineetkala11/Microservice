@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      micro: eureka-server
+  template:
+    metadata:
+      labels:
+        micro: eureka-server
+    spec:
+      containers:
+        - name: eurekaserver
+          image: vineetkala11/edureka-server
+          ports:
+            - containerPort: 8761

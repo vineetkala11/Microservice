@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-data-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      micro: catalog-data
+  template:
+    metadata:
+      labels:
+        micro: catalog-data
+    spec:
+      containers:
+        - name: catalogdata
+          image: vineetkala11/catalog-data
+          ports:
+            - containerPort: 8000
+          env:
+            - name: EUREKA_SERVER
+              value: http://eureka-server-service:8761/eureka
