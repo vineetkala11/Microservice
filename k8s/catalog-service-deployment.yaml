@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: catalog-service-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       micro: catalog-service
@@ -20,3 +20,5 @@ spec:
           env:
             - name: EUREKA_SERVER
               value: http://eureka-server-service:8761/eureka
+            - name: HOST_NAME
+              value: catalog-service-service

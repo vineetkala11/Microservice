@@ -20,3 +20,5 @@ spec:
           env:
             - name: EUREKA_SERVER
               value: http://eureka-server-service:8761/eureka
+            - name: HOST_NAME
+              value: gateway-service
