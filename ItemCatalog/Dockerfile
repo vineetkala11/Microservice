@@ -1,4 +1,5 @@
 FROM openjdk:8
-ADD target/Item-Catalog.jar Item-Catalog.jar
+WORKDIR /usr/app
+ADD target/Catalog-Data.jar Catalog-Data.jar
 EXPOSE 8000
-ENTRYPOINT ["java","-jar","Item-Catalog.jar"]
+ENTRYPOINT ["java","-jar","Catalog-Data.jar"]

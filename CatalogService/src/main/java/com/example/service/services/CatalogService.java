@@ -24,6 +24,7 @@ public class CatalogService {
 			   @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "30000")
 	})
 	public List<CatalogDetail> getCatalogUsingRestTemplate(){
+		log.info("Inside CatalogService, calling catalog-data service");
 		List<CatalogDetail> details = serviceProxy.getCatalogList();
 		return details;
 	}

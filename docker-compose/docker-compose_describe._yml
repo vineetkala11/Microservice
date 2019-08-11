@@ -1,0 +1,54 @@
+version: '3'
+services:
+  eureka-server:
+    image: "eureka-server"
+    ports:
+      - "8761:8761"
+    networks:
+      my-network:
+        aliases:
+          - eureka-server
+  zuul-gateway:
+    image: "gateway"
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+      - CATALOG_SERVICE=catalog-service
+      - HOST_NAME=zuul-gateway
+    ports:
+      - "8084:8084"
+    depends_on: // docker-compose make sure the all dependent service up and running before this service
+      - eureka-server
+    networks:
+      my-network:
+        aliases:   // to provide explictly hostname to the service
+          - zuul-gateway
+  catalog-data:
+    image: "catalog-data"
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+      - HOST_NAME=catalog-data
+    ports:
+      - "8100"
+    depends_on:
+      - eureka-server
+    networks:
+      my-network:
+        aliases:
+          - catalog-data
+  catalog-service:
+    image: "catalog-service"
+    environment:
+      - EUREKA_SERVER=http://eureka-server:8761/eureka
+      - HOST_NAME=catalog-service
+    ports:
+      - "8000"
+    depends_on:
+      - eureka-server
+    networks:
+      my-network:
+        aliases:
+          - catalog-service
+networks:// Specify your own networks with the top-level networks key, to allow creating more complex topologies and specify network drivers (and options). You can also use this configuration to connect services with external networks Docker Compose does not manage. Each service can specify which networks to connect to with its service-level networks key. 
+        // This way Docker Compose sets up a single custom network for your application(s), adding each container for a service to this network. Containers on a single network can reach and discover every other container on the network.
+    my-network:
+        driver: bridge

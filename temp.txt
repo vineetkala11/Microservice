@@ -1,0 +1,21 @@
+Running as a Springboot project:
+
+Eureka Server : http://localhost:8761/
+Gateway: http://localhost:8084/catservice/service/fetchCatalog
+http://localhost:8100/service/fetchCatalog
+http://localhost:8000/catalog/getAllCatalog
+
+
+
+Docker compose:
+http://localhost:8761/
+http://localhost:8084/catservice/service/fetchCatalog
+http://localhost:32771/service/fetchCatalog
+http://localhost:32769/catalog/getAllCatalog
+
+
+kubernetes:
+https://localhost/
+https://localhost/api/catservice/service/fetchCatalog
+https://localhost/cts/service/fetchCatalog
+https://localhost/data/catalog/getAllCatalog

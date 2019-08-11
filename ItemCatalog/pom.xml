@@ -77,7 +77,7 @@
 	</dependencyManagement>
 
 	<build>
-	<finalName>Item-Catalog</finalName>
+	<finalName>Catalog-Data</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
