@@ -10,7 +10,7 @@ This project based on Spring boot Microservice and covering all the aspects of M
 - Hystrix (Circuit Breaker)
 - Docker
 - Docker Compose
-- Kubernetes
+- Kubernetes Deployment
 - Ingress-Nginx
 
 ## Installation
