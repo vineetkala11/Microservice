@@ -33,7 +33,7 @@ CatalogService: This microservice is a middle layer between Gateway and CatalogD
 *Note: In this project I was not maintaining any business login, propose of this project to build our understanding towards Microservice Architecture and DevOps parts in Microservice world. That why we are not making any database interaction in "CatalogData" service and maintaining in memory list.
 
 > Flow Digram
-![](master/img/flow-diagram.png)
+![](/img/flow-diagram.png)
 
 ## Installation
 
