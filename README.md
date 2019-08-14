@@ -70,7 +70,9 @@ Download Docker hub for windows or Mac from below link
 	- CatalogData: 8000
 - Its time to check our Gateway API response, open browser and try to access Gateway proxy url http://localhost:8084/catservice/service/fetchCatalog .You must be seeing below response in your screen.
 
-`[{"itemName":"Cricket Bat","itemCount":100,"port":"8000"},{"itemName":"Cricket Ball","itemCount":350,"port":"8000"},{"itemName":"Football","itemCount":30,"port":"8000"}]`
+```
+[{"itemName":"Cricket Bat","itemCount":100,"port":"8000"},{"itemName":"Cricket Ball","itemCount":350,"port":"8000"},{"itemName":"Football","itemCount":30,"port":"8000"}]
+```
 
 - Here we redirected our Gateway Proxy Url towards CatalogService endpoint, to verify Gateway proxy configuration please refer to application.properties file line no 5. Here on the basis of "catservice" keyword we are redirecting our request towards  CatalogService (here "catalog-service" is the name of service, mentioned in its application.properties file).
 
