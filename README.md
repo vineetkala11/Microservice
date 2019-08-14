@@ -90,12 +90,12 @@ For this segment we need docker installed in our machine.
 
     cd EurekaServer
     docker build -t eureka-server .
-	cd Gateway
-	docker build -t gateway .
-	cd CatalogData
-	docker build -t catalog-data .
-	cd CatalogService
-	docker build -t catalog-service .
+    cd Gateway
+    docker build -t gateway .
+    cd CatalogData
+    docker build -t catalog-data .
+    cd CatalogService
+    docker build -t catalog-service .
 	
 - Once done with Docker image creation, run below command to verify Docker image. You must see all images with the given Tag name as given in below snapshot.
 
