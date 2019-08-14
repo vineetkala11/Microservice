@@ -66,7 +66,15 @@ Here are trying to implement Microservice Architecture using these four services
 	- CatalogData: 8000
 - Its time to check our Gateway API response, open browser and try to access Gateway proxy url http://localhost:8084/catservice/service/fetchCatalog .You must be seeing below response in your screen.
 
-`$ [{"itemName":"Cricket Bat","itemCount":100,"port":"8000"},{"itemName":"Cricket Ball","itemCount":350,"port":"8000"},{"itemName":"Football","itemCount":30,"port":"8000"}]`
+`[{"itemName":"Cricket Bat","itemCount":100,"port":"8000"},{"itemName":"Cricket Ball","itemCount":350,"port":"8000"},{"itemName":"Football","itemCount":30,"port":"8000"}]`
+
+- Here we redirected our Gateway Proxy Url towards CatalogService endpoint, to verify Gateway proxy configuration please refer to application.properties file line no 5. Here on the basis of "catservice" keyword we are redirecting our request towards  CatalogService (here "catalog-service" is the name of service, mentioned in its application.properties file).
+`zuul.routes.catservice.serviceId=${CATALOG_SERVICE:catalog-service}`
+
+## Run project as a Docker-Compose:
+
+
+## Run project as a Kubernetes Cluster:
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
