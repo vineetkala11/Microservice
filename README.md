@@ -79,23 +79,23 @@ For this segment we need docker installed in our machine.
 - Refer to Dockerfile in each service. Below is the sample Dockerfile to create on image of Service. 
 
 
-    FROM openjdk:8
-    WORKDIR /usr/app
-    ADD target/eureka-server.jar eureka-server.jar
-    EXPOSE 8761
-    ENTRYPOINT ["java","-jar","eureka-server.jar"]
+	FROM openjdk:8
+	WORKDIR /usr/app
+	ADD target/eureka-server.jar eureka-server.jar
+	EXPOSE 8761
+	ENTRYPOINT ["java","-jar","eureka-server.jar"]
 
 - Run below command in each Service directory to create an Docker Image 
 
 
-    cd EurekaServer
-    docker build -t eureka-server .
-    cd Gateway
-    docker build -t gateway .
-    cd CatalogData
-    docker build -t catalog-data .
-    cd CatalogService
-    docker build -t catalog-service .
+	cd EurekaServer
+ 	docker build -t eureka-server .
+	cd Gateway
+	docker build -t gateway .
+	cd CatalogData
+	docker build -t catalog-data .
+	cd CatalogService
+	docker build -t catalog-service .
 	
 - Once done with Docker image creation, run below command to verify Docker image. You must see all images with the given Tag name as given in below snapshot.
 
