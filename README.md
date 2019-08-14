@@ -33,15 +33,29 @@ CatalogService: This microservice is a middle layer between Gateway and CatalogD
 *Note: In this project I was not maintaining any business login, propose of this project to build our understanding towards Microservice Architecture and DevOps parts in Microservice world. That why we are not making any database interaction in "CatalogData" service and maintaining in memory list.
 
 > Flow Digram
-![GitHub Logo](/img/flow-diagram.png)
+![Service Flow diagram](/img/flow-diagram.png)
 
 ## Installation
 
 
 
-## Usage
+## Run project as a Spring boot application:
 
+- Import all four project as a maven project in your IDE (I am using eclipse as IDE).
+- Right click EurekaServer project and run as a Spring boot Application.
+	- Open browser and try to access http://localhost:8761/ .If everything setup correctly you are able to view Eureka server home page.
+![Eureka Server](/img/spring-eureka-server.png)
+- Our Eureka server is running and ready to register Eureka Clients.
+- Run other three Services (CatalogService, Gateway, CatalogData) as Spring Boot application, once all three clients up and running, again try to access http://localhost:8761/ ,you will find all three services is registered in Eureka client.
+![Eureka Server Clients](/img/spring-eureka-server-all.png)
+- At this moment all four service is up and running. Before hitting our API, I would like to share PORT details for each service as describe in application.properties file.
+	- EurekaServer: 8761
+	- Gateway: 8084
+	- CatalogService: 8100
+	- CatalogData: 8000
+- Its time to check our Gateway API response, open browser and try to access Gateway proxy url http://localhost:8084/catservice/service/fetchCatalog .You must be seeing below response in your screen.
 
+`$ [{"itemName":"Cricket Bat","itemCount":100,"port":"8000"},{"itemName":"Cricket Ball","itemCount":350,"port":"8000"},{"itemName":"Football","itemCount":30,"port":"8000"}]`
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
