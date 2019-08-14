@@ -100,7 +100,7 @@ For this segment we need docker installed in our machine.
 
 ![Docker build](/img/docker-build.png)
 	
-- Once done with Docker image creation, run below command to verify Docker image. You must see all images with the given Tag name as given in below snapshot.
+- Once done with Docker image creation, run below command to verify Docker images. You must see all images with the given Tag name, as shown in below snapshot.
 
 	`docker images`
 
