@@ -35,6 +35,15 @@ CatalogService: This microservice is a middle layer between Gateway and CatalogD
 > Flow Digram
 ![Service Flow diagram](/img/flow-diagram.png)
 
+## Services Description
+
+Here are trying to implement Microservice Architecture using these four services. Quick look in role of each service in this Architecture and implementation of Spring module in each service.
+
+- EurekaServer : Eureka Server  (refer to code to check implementation)
+- Gateway: Eureka Client, Implemented Zuul Proxy Gateway (refer to code to check implementation)
+- CatalogService: Eureka Client, Feign (Rest Client), Ribbon (Load Balancer), Hystrix (Circuit Breaker)  (refer to code to check implementation)
+- CatalogData: Eureka Client (refer to code to check implementation)
+
 ## Installation
 
 
@@ -44,9 +53,11 @@ CatalogService: This microservice is a middle layer between Gateway and CatalogD
 - Import all four project as a maven project in your IDE (I am using eclipse as IDE).
 - Right click EurekaServer project and run as a Spring boot Application.
 	- Open browser and try to access http://localhost:8761/ .If everything setup correctly you are able to view Eureka server home page.
+	
 ![Eureka Server](/img/spring-eureka-server.png)
 - Our Eureka server is running and ready to register Eureka Clients.
 - Run other three Services (CatalogService, Gateway, CatalogData) as Spring Boot application, once all three clients up and running, again try to access http://localhost:8761/ ,you will find all three services is registered in Eureka client.
+
 ![Eureka Server Clients](/img/spring-eureka-server-all.png)
 - At this moment all four service is up and running. Before hitting our API, I would like to share PORT details for each service as describe in application.properties file.
 	- EurekaServer: 8761
