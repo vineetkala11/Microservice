@@ -97,6 +97,8 @@ For this segment we need docker installed in our machine.
 	cd CatalogService
 	docker build -t catalog-service .
 ```
+
+![Docker build](/img/docker-build.png)
 	
 - Once done with Docker image creation, run below command to verify Docker image. You must see all images with the given Tag name as given in below snapshot.
 
@@ -104,7 +106,17 @@ For this segment we need docker installed in our machine.
 
 ![Docker Images](/img/docker-image.png)
 
-## Run project in a  Kubernetes Cluster:
+- We are done with Docker Image creation for all 4 servies.
+- Now its time to run all 4 images in Docker container using Docker-Compose.
+- Switch the directory to "docker-compose" in command prompt.
+- Run below command to execute docker-compose.yml file
+
+	`docker-compose up`
+
+- All 4 services started running and logs getting printed in console.
+- Once all service start running, to verify the services, open browser and try to access http://localhost:8761/ .Spring Eureka page get open with all 3 registered client.
+
+## Run project in a Kubernetes Cluster:
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
