@@ -25,10 +25,10 @@ This project based on Spring boot Microservice and covering all the aspects of M
 I found many examples over Internet which covering topics like "Springboot Microservice Architecture" or "Deploy Microservices on Docker Containers" or "Manage Docker Images with Kubertenes clusters". But didn't found which covering all topics in single example step by step.
 In this project I have created 3 Eureka Clients (CatalogService, Gateway, CatalogData) and one Eureka Server (EurekaServer).
 
-EurekaServer: This microservice is acting as Eureka Server, all other service register themselves in EurekaServer. 
-Gateway: This microservice acting as a proxy server.
-CatalogData: This microservice acting as Database layer.
-CatalogService: This microservice is a middle layer between Gateway and CatalogData.
+- EurekaServer: This microservice is acting as Eureka Server, all other service register themselves in EurekaServer. 
+- Gateway: This microservice acting as a proxy server.
+- CatalogData: This microservice acting as Database layer.
+- CatalogService: This microservice is a middle layer between Gateway and CatalogData.
 
 *Note: In this project I was not maintaining any business login, propose of this project to build our understanding towards Microservice Architecture and DevOps parts in Microservice world. That why we are not making any database interaction in "CatalogData" service and maintaining in memory list.
 
