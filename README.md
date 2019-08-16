@@ -129,7 +129,9 @@ For this segment we need docker installed in our machine.
 
 ## Run project in a Kubernetes Cluster:
 Till now we are good enough to create Docker image of our service and running images as a container using docker-compose. We  also done with the scalling part  of our containers.
-But this is not the case always, in production environment you might need a better managment for you containers. Here Kuberenetes comes in picture.
+
+But this is not the case always, in production environment you might need a better managment for your containers. Here Kuberenetes comes in picture.
+
 Kubernetes is a cluster and container management tool. It lets you deploy containers to clusters, meaning a network of virtual machines. It works with different containers, not just Docker. The basic idea of Kubernetes is to further abstract machines, storage, and networks away from their physical implementation.
 
 - In this project I have used Kubertenes version comes with the installation of "Docker-for-Desktop".
@@ -155,7 +157,10 @@ Kubernetes is a cluster and container management tool. It lets you deploy contai
 - To push our local images to Docker Hub, we need to run following commands-
 	- `docker login` (it will ask our DockerHub user and password)
 	- `docker push "our image name"`
+	
 	**Note : If you do not have DockerHub login, use images from my Docker Hub.*
+	
+	![Docker Images](/img/docker-hub.png)
 	
 
 ## Contributing
