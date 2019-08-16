@@ -18,6 +18,7 @@ This project based on Spring boot Microservice and covering all the aspects of M
 - Java 8
 - Docker (I was using docker for desktop windows version=18.09.2)
 - Kubernetes (I was using built in "docker for desktop" kubernetes)
+- Install kubectl
 - Clone this repository and run "mvn clean install" inside all four projects (CatalogService, EurekaServer, Gateway, CatalogData)
 
 ## Project Explanation
@@ -122,7 +123,40 @@ For this segment we need docker installed in our machine.
 - All 4 services started running and logs getting printed in console.
 - Once all service start running, to verify the services, open browser and try to access http://localhost:8761/ .Spring Eureka page get open with all 3 registered client.
 
+- You can also scale services by running multiple container of single image, below docker-compose command scale up "catalog-data" by 3 and "catalog-service" by 2 containers. You can easly identify multiple instanse by accessing url http://localhost:8761/ .Docker itself manage port assignment for each container.
+
+	`docker-compose up --scale catalog-data=3 --scale catalog-service=2`
+
 ## Run project in a Kubernetes Cluster:
+Till now we are good enough to create Docker image of our service and running images as a container using docker-compose. We  also done with the scalling part  of our containers.
+But this is not the case always, in production environment you might need a better managment for you containers. Here Kuberenetes comes in picture.
+Kubernetes is a cluster and container management tool. It lets you deploy containers to clusters, meaning a network of virtual machines. It works with different containers, not just Docker. The basic idea of Kubernetes is to further abstract machines, storage, and networks away from their physical implementation.
+
+- In this project I have used Kubertenes version comes with the installation of "Docker-for-Desktop".
+
+![Docker Images](/img/kubernetes-docker-for-desktop.png)
+
+- Minikube is the another way to install Kubernetes in your machine, I was facing space issue with Minikube because Minikube expects VirtualBox to be used. For windows 10 users, using HyperV Manager you can create VirtualBox and Virtual Switch.
+- Next you need to install kubectl, below are the steps to follow for windows -
+	- Create a new directory that you will move your kubectl binaries into. A good place would be C:\bin
+	- Download the latest kubectl executable from the link on the Kubernetes doc page.
+	`https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-windows`
+	- Move this downloaded .exe file into the bin directory you created.
+	- Use Windows search to type “env” then select “Edit the system environment variables”
+	- In the System Properties dialog box, click “Environment Variables”.
+	- In System Variables click on the “Path” Variable and then click “Edit”
+	- Click “New” and then type C:\bin
+	- Drag the newly created path so that it is higher in order than Docker's binaries. This is very important and will ensure that you will not have an out of date kubectl client.
+	- Click "OK"
+	- Restart your terminal and test by typing kubectl into it. You should get the basic commands and help menu printed back to your screen. If this doesn't work try restarting your machine.
+	- Run kubectl version to verify that you are using the newest version and not the out of date v1.10 version.
+- So we are done with Kubernetes setup part, lets deploy our services in Kubernetes cluster.
+- Apart from docker-compose, kubernetes didn't manage Docker images available  in local machine. To make our Docker images available for Kubertenes cluster, we need to push our images in Docker Hub.
+- To push our local images to Docker Hub, we need to run following commands-
+	- `docker login` (it will ask our DockerHub user and password)
+	- `docker push "our image name"`
+	**Note : If you do not have DockerHub login, use images from my Docker Hub.*
+	
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
