@@ -160,7 +160,7 @@ Kubernetes is a cluster and container management tool. It lets you deploy contai
 	
 	**Note : If you do not have DockerHub login, use images from my Docker Hub.*
 	
-	![Docker Images](/img/docker-hub.png)
+	![Docker Images](/img/docker-hub-img.png)
 	
 
 ## Contributing
