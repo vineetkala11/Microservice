@@ -158,9 +158,9 @@ Kubernetes is a cluster and container management tool. It lets you deploy contai
 	- `docker login` (it will ask our DockerHub user and password)
 	- `docker push "our image name"`
 	
-	**Note : If you do not have DockerHub login, use images from my Docker Hub.*
+	**Note : If you do not have DockerHub login, use images from my Docker Hub repository.*
 	
-	![Docker Images](/img/docker-hub-img.png)
+	![Docker Images](/img/my-docker-hub.png)
 	
 
 ## Contributing
