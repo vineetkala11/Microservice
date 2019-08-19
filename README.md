@@ -83,7 +83,7 @@ Download Docker hub for windows or Mac from below link
 
 For this segment we need docker installed in our machine. 
 
-- Refer to Dockerfile in each service. Below is the sample Dockerfile to create on image of Service. 
+- Refer to Dockerfile in each service. Below is the sample Dockerfile to create an image of Service. 
 
 ```
 	FROM openjdk:8
@@ -92,7 +92,7 @@ For this segment we need docker installed in our machine.
 	EXPOSE 8761
 	ENTRYPOINT ["java","-jar","eureka-server.jar"]
 ```
-- Run below command in each Service directory to create an Docker Image 
+- Run below command in each Service directory to create Docker Image 
 
 ```
 	cd EurekaServer
@@ -107,7 +107,7 @@ For this segment we need docker installed in our machine.
 
 ![Docker build](/img/docker-build.png)
 	
-- Once done with Docker image creation, run below command to verify Docker images. You must see all images with the given Tag name, as shown in below snapshot.
+- Once done with Docker image creation, run below command to verify Docker images. You must see all images with the given Repository name, as shown in below snapshot.
 
 	`docker images`
 
@@ -120,8 +120,8 @@ For this segment we need docker installed in our machine.
 
 	`docker-compose up`
 
-- All 4 services started running and logs getting printed in console.
-- Once all service start running, to verify the services, open browser and try to access http://localhost:8761/ .Spring Eureka page get open with all 3 registered client.
+- All 4 services started running and logs get printed in console.
+- Once all service start running, to verify status of the sevices, open browser and try to access http://localhost:8761/ .Spring Eureka page get open with all 3 registered client.
 
 - You can also scale services by running multiple container of single image, below docker-compose command scale up "catalog-data" by 3 and "catalog-service" by 2 containers. You can easly identify multiple instanse by accessing url http://localhost:8761/ .Docker itself manage port assignment for each container.
 
