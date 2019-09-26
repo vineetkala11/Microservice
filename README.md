@@ -1,4 +1,4 @@
-# Creating Microservices With Spring, Eureka Server, Docker and Kubernetes
+# Creating Microservices With Spring, Eureka Server, Redis Cache, Docker and Kubernetes
 
 This project based on Spring boot Microservice and covering all the aspects of Microservice Architecture end to end. Below are the key topics covered in this project-
 
