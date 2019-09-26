@@ -8,16 +8,43 @@ Clone this repository and run "mvn clean install" inside all four projects (Cata
 
 Project Explanation :
 
-I found many examples over internet which covering topics like "Springboot Microservice Architecture" or "Deploy Microservices on Docker Containers" or "Manage Docker Images with Kubertenes clusters". But didn't found which covering all topics in single example step by step.
+I found many examples over Internet which covering topics like "Springboot Microservice Architecture" or "Deploy Microservices on Docker Containers" or "Manage Docker Images with Kubertenes clusters". But didn't found which covering all topics in single example step by step.
 In this project I have created 3 Eureka Clients (CatalogService, Gateway, CatalogData) and one Eureka Server (EurekaServer).
 
-EurekaServer: This microservice is acting as Eureka Server, all other service register itself in EurekaServer. 
+EurekaServer: This microservice is acting as Eureka Server, all other service register themselves in EurekaServer. 
 Gateway: This microservice acting as a proxy server.
 CatalogData: This microservice acting as Database layer.
 CatalogService: This microservice is a middle layer between Gateway and CatalogData.
 
 *Note: In this project I was not maintaining any business login, propose of this project to build our understanding towards Microservice Architecture and DevOps parts in Microservice world. That why we are not making any database interaction in "CatalogData" service and maintaining in memory list.
 
+https://github.com/vineetkala11/Microservice/blob/master/img/flow-diagram.png
+
+
+Services description:
+
+Here are trying to implement Microservice Architecture using these four services. Quick look in role of each service in this Architecture and implementation of Spring module.
+
+EurekaServer : Eureka Server  (refer to code to check implementation)
+Gateway: Implemented Zuul Proxy Gateway (refer to code to check implementation)
+CatalogService: Feign (Rest Client), Ribbon (Load Balancer), Hystrix (Circuit Breaker)  (refer to code to check implementation)
+
+Usage:
+
+Run project as a Spring boot application:
+ Import all four project as a maven project in your IDE (I am using eclipse as IDE).
+ Right click EurekaServer project and run as a Spring boot Application. 
+	- Open browser and try to access http://localhost:8761/ .If everything setup correctly you are able to view Eureka server home page.
+ Our Eureka server is running and ready to register Eureka Clients.
+ Run other three Services (CatalogService, Gateway, CatalogData) as Spring Boot application, once all three clients up and running, again try to access http://localhost:8761/ ,you will find all three services is registered in Eureka client.
+ At this moment all four service is up and running. Before hitting our API, I would like to share PORT details for each service as describe in application.properties file.
+	- EurekaServer: 8761
+	- Gateway: 8084
+	- CatalogService: 8100
+	- CatalogData: 8000
+ Its time to check our Gateway API response, open browser and try to access Gateway proxy url http://localhost:8084/catservice/service/fetchCatalog .You must be seeing below response in your screen.
+
+ 
 
 Running as a Springboot project:
 
@@ -26,6 +53,10 @@ Gateway: http://localhost:8084/catservice/service/fetchCatalog
 http://localhost:8100/service/fetchCatalog
 http://localhost:8000/catalog/getAllCatalog
 
+mesh network
+muel usb
+tifco queue
+ 
 
 
 Docker compose:

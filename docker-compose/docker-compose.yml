@@ -13,6 +13,7 @@ services:
     environment:
       - EUREKA_SERVER=http://eureka-server:8761/eureka
       - CATALOG_SERVICE=catalog-service
+      - CATALOG_DATA=catalog-data
       - HOST_NAME=zuul-gateway
     ports:
       - "8084:8084"
@@ -26,11 +27,13 @@ services:
     image: "catalog-data"
     environment:
       - EUREKA_SERVER=http://eureka-server:8761/eureka
+      - REDIS_HOST=redis
       - HOST_NAME=catalog-data
     ports:
       - "8000"
     depends_on:
       - eureka-server
+      - redis
     networks:
       my-network:
         aliases:
@@ -48,6 +51,14 @@ services:
       my-network:
         aliases:
           - catalog-service
+  redis:
+    image: "myredis"
+    ports:
+      - "6379:6379"
+    networks:
+      my-network:
+        aliases:
+          - redis
 networks:
     my-network:
         driver: bridge

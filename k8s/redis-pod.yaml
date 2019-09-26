@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-pod
+  labels:
+    cache: redis-cache
+spec:
+  containers:
+    - name: redis-cache
+      image: redis
+      ports:
+        - containerPort: 6379
