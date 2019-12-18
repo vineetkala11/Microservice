@@ -12,8 +12,6 @@ services:
     image: "gateway"
     environment:
       - EUREKA_SERVER=http://eureka-server:8761/eureka
-      - CATALOG_SERVICE=catalog-service
-      - CATALOG_DATA=catalog-data
       - HOST_NAME=zuul-gateway
     ports:
       - "8084:8084"
