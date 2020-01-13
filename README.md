@@ -17,8 +17,8 @@ This project based on Spring boot Microservice and covering all the aspects of M
 ## Prerequisite
 
 - Java 8
-- Docker (I was using docker for desktop windows version=18.09.2)
-- Kubernetes (I was using built in "docker for desktop" kubernetes)
+- Docker (I am using docker for desktop windows version=18.09.2)
+- Kubernetes (I am using built in "docker for desktop" kubernetes)
 - Install kubectl
 - Clone this repository and run "mvn clean install" inside all four projects (CatalogService, EurekaServer, Gateway, CatalogData)
 
