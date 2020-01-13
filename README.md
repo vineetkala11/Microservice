@@ -8,6 +8,7 @@ This project based on Spring boot Microservice and covering all the aspects of M
 - Ribbon (Load Balancer)
 - Feign (Rest Client)
 - Hystrix (Circuit Breaker)
+- Redis (Caching Server)
 - Docker
 - Docker Compose
 - Kubernetes Deployment
