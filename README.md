@@ -32,7 +32,7 @@ In this project I have created 3 Eureka Clients (CatalogService, Gateway, Catalo
 - CatalogData: This microservice acting as Database layer.
 - CatalogService: This microservice is a middle layer between Gateway and CatalogData.
 
-*Note: In this project I was not maintaining any business login, propose of this project to build our understanding towards Microservice Architecture and DevOps parts in Microservice world. That why we are not making any database interaction in "CatalogData" service and maintaining in memory list.
+*Note: In this project I am not maintaining any business login, purpose of this project is to build our understanding towards Microservice Architecture and DevOps parts in Microservice world. That's why we are not making any database interaction in "CatalogData" service and maintaining in memory list.
 
 > Flow Digram
 ![Service Flow diagram](/img/flow-diagram.png)
