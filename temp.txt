@@ -21,13 +21,14 @@ CatalogService: This microservice is a middle layer between Gateway and CatalogD
 https://github.com/vineetkala11/Microservice/blob/master/img/flow-diagram.png
 
 
-Services description:
+Services Description:
 
-Here are trying to implement Microservice Architecture using these four services. Quick look in role of each service in this Architecture and implementation of Spring module.
+Here are trying to implement Microservice Architecture using these four services. Quick look in role of each service in this Architecture and implementation of Spring module in each service.
 
 EurekaServer : Eureka Server  (refer to code to check implementation)
-Gateway: Implemented Zuul Proxy Gateway (refer to code to check implementation)
-CatalogService: Feign (Rest Client), Ribbon (Load Balancer), Hystrix (Circuit Breaker)  (refer to code to check implementation)
+Gateway: Eureka Client, Implemented Zuul Proxy Gateway (refer to code to check implementation)
+CatalogService: Eureka Client, Feign (Rest Client), Ribbon (Load Balancer), Hystrix (Circuit Breaker)  (refer to code to check implementation)
+CatalogData: Eureka Client (refer to code to check implementation)
 
 Usage:
 
@@ -44,7 +45,13 @@ Run project as a Spring boot application:
 	- CatalogData: 8000
  Its time to check our Gateway API response, open browser and try to access Gateway proxy url http://localhost:8084/catservice/service/fetchCatalog .You must be seeing below response in your screen.
 
+ Here we redirected our Gateway Proxy Url towards CatalogService endpoint, to verify Gateway proxy configuration please refer to application.properties file line no 5
  
+
+With docker-compose:
+For this segment we need docker installed in our machine.
+Refer to Dockerfile in each service
+
 
 Running as a Springboot project:
 
